@@ -34,7 +34,7 @@ Install plugin on admin/tool/cmdlinetools directory, upgrade moodle
 
 ## usage
 use each commands as php command by calling it as php command line
-/moodle27workspace/src/admin/tool/cmdlinetools/cli/cmdline_manager.php command [options]
+php /moodleworkspace/admin/tool/cmdlinetools/cli/cmdline_manager.php command [options]
 command :
 set_cache
 allow_assign
@@ -59,7 +59,7 @@ add_assignment_capa
 --help, -h help
 return list of available commands
 
-/moodle27workspace/src/admin/tool/cmdlinetools/cli/cmdline_manager.php command -h
+php /moodleworkspace/admin/tool/cmdlinetools/cli/cmdline_manager.php command -h
 return help for the given command
 
 ## Contributions
