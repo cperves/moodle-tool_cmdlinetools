@@ -15,7 +15,7 @@ $string['clifailed_cmdlinecli'] = 'Command line moodle tool error';
 $string['cmdlinecli_help'] =
 'command line tool to launch moodle commands :
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php [argument]
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php [argument]
 Argument(optional) : the name of a command to execute (listed bellow)
 {$a}
 
@@ -25,11 +25,13 @@ Options:
 
 $string['set_config_cli_help']='set a config var
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php set_config [options]
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php set_config name value [options]
+name : config name config_param_name if moodle config give config parameter else if a plugin parameter give plugintype_pluginname/config_param_name  
+value: condif value
 
 Options:
 -h, --help                 print out this help
--n, --name=config_name     config name if no prompt mode as config_param_name if general config parameter or plugintype_pluginname/config_param_name if plugin param name
+
 -v, --value=config_value   config value if no prompt mode
 -c, --check 				check if config name exists
 ';
@@ -42,7 +44,7 @@ $string['set_capability_cli_help']=
 'set a capability for a role in a particular context 
 
 Usage:
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php set_capabiliy.php capability permission context role
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php set_capabiliy.php capability permission context role
 
 where :
 capability is an existing moodle capability
@@ -69,7 +71,7 @@ $string['clifailed_delete_js_cache_cli'] = 'Delete js cache failed';
 $string['delete_js_cache_cli_help']=
 "Delete js cache
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php delete_js_cache
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php delete_js_cache
 
 Options:
 -h, --help            Print out this help
@@ -87,7 +89,7 @@ $string['delete_plugin_cli_help']=
 "Delete a plugin
 
 Usage:
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php delete_plugin plugintype pluginname
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php delete_plugin plugintype pluginname
 
 where :
 plugintype is
@@ -115,7 +117,7 @@ $string['clifailed_delete_theme_cache_cli'] = 'Theme cache deletion failed';
 $string['delete_theme_cache_cli_help']=
 "Delete theme cache
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php delete_theme_cache
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php delete_theme_cache
 Options:
 -h, --help            Print out this help
 ";
@@ -126,7 +128,7 @@ $string['clifailed_hard_delete_js_cache_cli'] = 'Hard delete js cache failed';
 $string['hard_delete_js_cache_cli_help']=
 "Hardly delete js cache
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php hard_delete_cache
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php hard_delete_cache
 Options:
 -h, --help            Print out this help
 ";
@@ -147,7 +149,7 @@ $string['hideshow_plugin_cli_parametervalues'] = 'possible show/hide values are 
 $string['hideshow_plugin_cli_help']=
 "hide show a plugin
 Usage:
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php hideshow_plugin plugintype pluginname hideshow
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php hideshow_plugin plugintype pluginname hideshow
 
 where :
 plugintype is
@@ -188,9 +190,9 @@ $string['clititle_passwordaltmain_generator_cli']='Passwordaltmain generator';
 $string['clisuccessfull_passwordaltmain_generator_cli'] = 'Passwordaltmain generated sucessfully';
 $string['clifailed_passwordaltmain_generator_cli'] = 'Passwordaltmain generation failed';
 $string['passwordaltmain_generator_cli_help']=
-"Generate a passwordaltmain key for config.php  \$CFG->passwordsaltmain
+"Generate a passwordaltmain key for config.php
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php passwordaltmain_generator
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php passwordaltmain_generator
 Options:
 -h, --help            Print out this help
 ";
@@ -201,7 +203,7 @@ $string['clifailed_add_assignment_capa_cli'] = 'Add assignment capability failed
 $string['add_assignment_capa_cli_help']=
 "add capability to take in charge visibility control of feedback or assignment plugins on contexts
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php add_assignment_capa
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php add_assignment_capa
 
 Options:
 -h, --help                 print out this help
@@ -217,7 +219,7 @@ $string['clifailed_remove_assignment_capa_cli'] = 'Remove assignment capability 
 $string['remove_assignment_capa_cli_help']=
 "remove capability to take in charge visibility control of feedback or assignment plugins on contexts
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php remove_assignment_capa
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php remove_assignment_capa
 
 Options:
 -h, --help                 print out this help
@@ -235,7 +237,7 @@ $string['clifailed_remove_assignment_capa_cli'] = 'Schedule task failed';
 $string['schedule_task_cli_help']=
 "schedule task enable to set parameters for a given moodle scheduled task
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php schedule_task taskname [options]
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php schedule_task taskname [options]
 taskname written as follow :  \\plugin\\task\\taskname e.g \\auth_cas\\task\sync_task
 Options:
 -h, --help              print out this help
@@ -280,7 +282,7 @@ $string['clifailed_apply_defaults_settings_to_all_plugins_cli'] = 'Apply default
 $string['apply_defaults_settings_to_all_plugins_cli_help']=
 'Apply default plugin settings to non defined plugin settings such like upgradesettings.php 
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php apply_defaults_settings_to_all_plugins
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php apply_defaults_settings_to_all_plugins
 Options:
 -h, --help              print out this help
 ';
@@ -294,7 +296,7 @@ $string['clifailed_create_role_cli'] = 'Create role failed';
 $string['create_role_cli_help']=
 'Create a role with the given shortname 
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php create_role shortname
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php create_role shortname
 
 Where shortname must be unique
 Options:
@@ -312,7 +314,7 @@ $string['clifailed_create_role_cli'] = 'Set role context level failed';
 $string['role_set_context_level_cli_help']=
 'Set role context level
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php set_role_context_level shortname contextlevels
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php set_role_context_level shortname contextlevels
 
 Where :
 		shortname must be unique
@@ -329,7 +331,7 @@ $string['clifailed_allow_assign_cli'] = 'Allow assign role failed';
 $string['allow_assign_cli_help']=
 'Allow assign a target role for a role
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php allow_assign role targetrole
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php allow_assign role targetrole
 
 Options:
 	-h, --help              print out this help
@@ -345,7 +347,7 @@ $string['create_user_cli_userxexists']='user with name {$a} already exists';
 $string['create_user_cli_help']=
 'Create a user with the given username
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php create_user username
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php create_user username
 
 Where username must be unique
 Options:
@@ -370,7 +372,7 @@ $string['clifailed_role_assign_cli'] = 'Assign role to user failed';
 $string['role_assign_cli_help']=
 'Assign a given role to a given  user in a given context id
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php role_assign username shortname contextid
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php role_assign username shortname contextid
 
 Where 
 		username : user username
@@ -386,7 +388,7 @@ $string['role_assign_cli_contextxnotexists']='Context {$a} does not exists';
 
 $string['set_cache_cli_help']='set cache mappings to a given cache definition 
 Usage :
-		\$sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php set_cache definition mappings
+		sudo -u www-data /usr/bin/php admin/cli/admin/tool/cmdlinetools/cli/cmdline_manager.php set_cache definition mappings
 
 Where :
 		definition : cache definition containing component and area separated by / . e.g core/userselections

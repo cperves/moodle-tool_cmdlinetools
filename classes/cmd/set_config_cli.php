@@ -14,24 +14,21 @@ require_once($CFG->dirroot.'/admin/tool/cmdlinetools/classes/cmdlinecli.php');
 
 class set_config_cli extends cmdlinecli{
 	public function define_arguments_and_options(){
+		$this->waitedarguments = array(1=>'name', 2=>'value');
 		$this->longoptions= array(
-								'name'             => null,
-								'value'              => null,
 								'help'              => false,
 								'check' 			=> false
 							);
 		$this->shortmapping = array(
 								'h' => 'help',
-								'n' => 'name',
-								'v'=>'value',
 								'c'=>'check'
 						);
 		
 	}		 
 	function process_options(){
-		$var_name=$this->options['name'];
+		$var_name=$this->arguments['name'];
 		$var_name = explode('/',$var_name);
-		$var_value=$this->options['value'];
+		$var_value=$this->arguments['value'];
 		if(!isset($var_name) || !isset($var_value) ){
 			cli_writeln(get_string('namevaluerequired_set_config_cli','tool_cmdlinetools'));
 			cli_writeln($help);

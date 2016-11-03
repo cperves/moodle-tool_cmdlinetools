@@ -90,8 +90,11 @@ class cmdlinecli{
 		//TODO
 	}
 	protected function init(){
+		if(get_class($this) == 'cmdlinecli'){
+			$this->help = self::get_general_help_string();
+		} else {
 		$this->help = get_string(get_class($this).'_help', 'tool_cmdlinetools', $this->help_parameters);
-		
+		}
 		$result = $this->get_cmd_options();
 		//need to detect ondie mod fefore first cli_write, cli_writeln or cli_error 
 		$this->ondie = (array_key_exists('ondie', $this->options) && $this->options['ondie'])?true:false;
@@ -126,26 +129,37 @@ class cmdlinecli{
 	protected function process_output(){
 		cli_writeln(get_string('clisuccessfull_'.get_class($this),'tool_cmdlinetools'));
 	}
+    private static function get_cli_list(){
+    	global $CFG;
+    	$clilist = array();
+    	$fulldir = realpath($CFG->dirroot . DIRECTORY_SEPARATOR . 'admin'. DIRECTORY_SEPARATOR . 'tool'. DIRECTORY_SEPARATOR . 'cmdlinetools'. DIRECTORY_SEPARATOR .'classes'. DIRECTORY_SEPARATOR . 'cmd');
+    	$items = new \DirectoryIterator($fulldir);
+    	foreach ($items as $item) {
+    		if ($item->isDot() || $item->isDir()) {
+    			continue;
+    		}
+	    	$filename = $item->getFilename();
+	    	$classname = preg_replace('/\.php$/', '', $filename);
+	    
+	    	if ($filename === $classname) {
+	    		// Not a php file.
+	    		continue;
+	    	}
+	    	$classdescription = preg_replace('/_cli$/', '', $classname);
+	    	$clilist[$classname] = $classdescription;
+    	}
+    	return $clilist;
+    }
+    private static function get_general_help_string(){
+    	$clilist = array();
+    	$clilist = self::get_cli_list();
+    	return get_string('cmdlinecli_help', 'tool_cmdlinetools', implode(PHP_EOL, $clilist));
+    }
 	private function process_general_help(){
 		global $CFG;
 		//retrieve all cmdlinecli class
 		$clilist = array();
-		$fulldir = realpath($CFG->dirroot . DIRECTORY_SEPARATOR . 'admin'. DIRECTORY_SEPARATOR . 'tool'. DIRECTORY_SEPARATOR . 'cmdlinetools'. DIRECTORY_SEPARATOR .'classes'. DIRECTORY_SEPARATOR . 'cmd');
-		$items = new \DirectoryIterator($fulldir);
-		foreach ($items as $item) {
-			if ($item->isDot() || $item->isDir()) {
-				continue;
-			}
-			$filename = $item->getFilename();
-			$classname = preg_replace('/\.php$/', '', $filename);
-		
-			if ($filename === $classname) {
-				// Not a php file.
-				continue;
-			}
-			$classdescription = preg_replace('/_cli$/', '', $classname);
-			$clilist[$classname] = $classdescription;
-		}
+		$clilist = self::get_cli_list();
 		//construct help
 		cli_write(get_string('cmdlinecli_help', 'tool_cmdlinetools', implode(PHP_EOL, $clilist)));
 	}
